@@ -10,6 +10,12 @@
     }
     stage('build'){
         try{
+            dir('JenkinsMVC'){
+                bat 'nuget restore'
+                bat 'msbuild  /t:clean,build JenkinsMVC.csproj'
+                //t means target
+                //Rebuild meand Clean,Build
+            }
 
             }
             catch(error){
