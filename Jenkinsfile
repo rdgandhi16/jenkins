@@ -26,7 +26,7 @@
             try{
                 dir('JenkinsMVC'){
                     bat 'C:\\Tools\\SonarQube\\sonarQube.Scanner.MSBuild.exe begin /k: jmvc'
-                    bat 'dotnet build'
+                    bat 'msbuild /t:clean,build JenkinsMVC.csproj'
                     bat 'C:\\Tools\\SonarQube\\sonarQube.Scanner.MSBuild.exe end'
                 }
             }
