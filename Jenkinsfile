@@ -1,11 +1,10 @@
     stage('master'){
         stage('import'){
             try{
-
+               git url :'https://github.com/rdgandhi16/jenkins.git' 
             }
-            catch{
+            catch(error){
                 //slacksend message:{env.BUILD_NUMBER} color:'danger'   
-
             }
         }
     }
@@ -13,7 +12,7 @@
         try{
 
             }
-            catch{
+            catch(error){
                 //slacksend message: color:'danger'                
             }   
     }
@@ -21,7 +20,7 @@
             try{
 
             }
-            catch{
+            catch(error){
                 //slacksend message: color:'danger'
             }
     
@@ -30,7 +29,7 @@
             try{
 
             }
-            catch{
+            catch(error){
                 //slacksend message: color:'danger'
             }
     
@@ -39,7 +38,7 @@
             try{
 
             }
-            catch{
+            catch(error){
                 //slacksend message: color:'danger'                
             }
     
@@ -49,7 +48,7 @@
             try{
 
             }
-            catch{
+            catch(error){
                 //slacksend message: color:'danger'                
             }
     
