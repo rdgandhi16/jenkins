@@ -24,7 +24,11 @@
     }
     stage('analyze'){
             try{
-
+                dir('JenkinsMVC'){
+                    bat 'C:\\Tools\\SonarQube\\sonarQube.Scanner.MSBuild.exe begin /k: jmvc'
+                    bat 'dotnet build'
+                    bat 'C:\\Tools\\SonarQube\\sonarQube.Scanner.MSBuild.exe end'
+                }
             }
             catch(error){
                 //slacksend message: color:'danger'
@@ -33,6 +37,7 @@
     }
     stage('test'){
             try{
+                
 
             }
             catch(error){
