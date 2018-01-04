@@ -12,7 +12,7 @@
         try{
             dir('JenkinsMVC'){
                 bat 'nuget restore'
-                bat 'msbuild  /t:clean,build JenkinsMVC.csproj'
+                bat 'msbuild  /t:build JenkinsMVC.csproj'
                 //t means target
                 //Rebuild meand Clean,Build
             }
@@ -26,7 +26,7 @@
             try{
                 dir('JenkinsMVC'){
                     bat 'C:\\Tools\\SonarQube\\sonarQube.Scanner.MSBuild.exe begin /k: jmvc'
-                    bat 'msbuild /t:clean,build JenkinsMVC.csproj'
+                    bat 'msbuild /t:build JenkinsMVC.csproj'
                     bat 'C:\\Tools\\SonarQube\\sonarQube.Scanner.MSBuild.exe end'
                 }
             }
