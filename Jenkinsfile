@@ -1,4 +1,4 @@
-    stage('master'){
+    node('master'){
         stage('import'){
             try{
                git url :'https://github.com/rdgandhi16/jenkins.git' 
@@ -7,7 +7,7 @@
                 //slacksend message:{env.BUILD_NUMBER} color:'danger'   
             }
         }
-    }
+    
     stage('build'){
         try{
             dir('JenkinsMVC'){
@@ -59,3 +59,5 @@
             }
     
     }
+    }
+    
