@@ -25,9 +25,9 @@
         stage('analyze'){
             try{
                 dir('JenkinsMVC'){
-                    bat 'C:\\Tools\\SonarQube\\sonarQube.Scanner.MSBuild.exe begin /k: jmvc'
-                    bat 'msbuild /t:build JenkinsMVC.csproj'
-                    bat 'C:\\Tools\\SonarQube\\sonarQube.Scanner.MSBuild.exe end'
+                    // bat 'C:\\Tools\\SonarQube\\sonarQube.Scanner.MSBuild.exe begin /k: jmvc'
+                    // bat 'msbuild /t:build JenkinsMVC.csproj'
+                    // bat 'C:\\Tools\\SonarQube\\sonarQube.Scanner.MSBuild.exe end'
                 }
             }
             catch(error){
@@ -38,9 +38,9 @@
         stage('test'){
             try{
                 dir('JenkinsMVC.Tests'){
-                    bat 'dotnet restore'
-                    bat 'msbuild /t:build JenkinsMVC.csproj'
-                    bat 'dotnet test'
+                    // bat 'dotnet restore'
+                    // bat 'msbuild /t:build JenkinsMVC.csproj'
+                    // bat 'dotnet test'
                 }
 
             }
@@ -52,7 +52,7 @@
         stage('package'){
                 try{
                     dir('JenkinsMVC'){
-                        bat 'dotnet pack JenkinsMVC.csproj --out ../Package'                        
+                        // bat 'dotnet pack JenkinsMVC.csproj --out ../Package'                        
                         //bat 'msbuild /t:pack JenkinsMVC.csproj'
                         //package will be in jenkins/ws
                     }
@@ -66,10 +66,10 @@
     
         stage('deploy'){
             try{
-                bat 'msdeploy --verb:sync --sourcepath:  --destpath'
-                bat '"C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" 
-                -verb:sync -source:iisApp="C:\\Program Files (x86)\\Jenkins\\workspace\\jenkinsops\\hellopipeline\\JenkinsOps\\obj\\Debug\\netcoreapp2.0\\PubTmp\\Out" 
-                -dest:iisApp="Default Web Site/jenkinsops" -p:computer= -p:username= -p:password=  -enableRule:AppOffline'
+                // bat 'dotnet build ./JenkinsMVC/JenkinsMVC.csproj /p:DeployOnBuild=true /p:PublishProfile=publish'
+                // bat 'C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe' 
+                // -verb:sync -source:iisApp="C:\\Program Files (x86)\\Jenkins\\workspace\\jenkinsops\\hellopipeline\\JenkinsOps\\obj\\Debug\\netcoreapp2.0\\PubTmp\\Out" 
+                // -dest:iisApp="Default Web Site/jenkinsops" computer= username= password=  -enableRule:AppOffline'
 
             }
             catch(error){
