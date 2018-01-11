@@ -66,6 +66,10 @@
     
         stage('deploy'){
             try{
+                bat 'msdeploy --verb:sync --sourcepath:  --destpath'
+                bat '"C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" 
+                -verb:sync -source:iisApp="C:\\Program Files (x86)\\Jenkins\\workspace\\jenkinsops\\hellopipeline\\JenkinsOps\\obj\\Debug\\netcoreapp2.0\\PubTmp\\Out" 
+                -dest:iisApp="Default Web Site/jenkinsops" -p:computer= -p:username= -p:password=  -enableRule:AppOffline'
 
             }
             catch(error){
