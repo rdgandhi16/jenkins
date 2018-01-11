@@ -1,7 +1,11 @@
     node('master'){
         stage('import'){
             try{
-               git url :'https://github.com/rdgandhi16/jenkins.git' 
+            dir('JenkinsMVC'){
+                
+                git url :'https://github.com/rdgandhi16/jenkins.git' 
+                
+            }
             }
             catch(error){
                 //slacksend message:{env.BUILD_NUMBER} color:'danger'   
