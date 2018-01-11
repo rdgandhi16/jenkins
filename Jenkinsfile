@@ -16,9 +16,9 @@
         try{
             dir('JenkinsMVC'){
                 bat 'dotnet restore'
-                bat 'msbuild  /t:clean,build JenkinsMVC.csproj'
+                bat 'msbuild  /t:Rebuild JenkinsMVC/JenkinsMVC.csproj'
                 //t means target
-                //Rebuild meand Clean,Build
+                //Rebuild means Clean,Build
             }
 
             }
